@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      text-align: center;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .options {
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="question">What color does the blackcurrant berry actually have?</div>
+  <div class="options">
+    <input type="radio" id="blue" name="answer" value="Blue">
+    <label for="blue">Blue</label><br>
+    <input type="radio" id="purple" name="answer" value="Very dark purple">
+    <label for="purple">Very dark purple</label>
+  </div>
+  <button onclick="checkAnswer()">Submit</button>
+  <div id="result"></div>
+
+  <script>
+    function checkAnswer() {
+      const answer = document.querySelector('input[name=answer]:checked');
+      const result = document.getElementById('result');
+      if (!answer) {
+        result.textContent = 'Please select an answer.';
+        return;
+      }
+      if (answer.value === 'Very dark purple') {
+        result.textContent = 'Correct! The blackcurrant berry is actually very dark purple.';
+      } else {
+        result.textContent = 'Incorrect. The blackcurrant berry is actually very dark purple.';
+      }
+    }
+  </script>
+</body>
+</html>
